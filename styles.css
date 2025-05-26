@@ -1,0 +1,911 @@
+/* Base styles and reset */
+:root {
+  --primary-color: #0a4d68;
+  --secondary-color: #088395;
+  --accent-color: #05bfdb;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --text-color: #333;
+  --background-color: #fff;
+  --gray-light: #f5f5f5;
+  --gray-medium: #e0e0e0;
+  --gray-dark: #757575;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+h2:after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent-color);
+  margin: 0.5rem auto 0;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Header styles */
+header {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+}
+
+.logo img {
+  height: 40px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav li {
+  margin-left: 1.5rem;
+}
+
+nav a {
+  color: white;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--accent-color);
+}
+
+nav a.active:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+.hero {
+  background-image: linear-gradient(
+      rgba(10, 77, 104, 0.8),
+      rgba(10, 77, 104, 0.8)
+    ),
+    url("images/wave.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 5%;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero h1 {
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.hero p {
+  color: white;
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Development outsourcing section */
+.development-outsourcing .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.section-image {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.section-content h2 {
+  text-align: left;
+}
+
+.section-content h2:after {
+  margin-left: 0;
+}
+
+/* Case studies section */
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.case-item {
+  background-color: var(--light-color);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.case-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.case-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  padding: 1rem;
+}
+
+.case-icon img {
+  max-width: 100%;
+  max-height: 100%;
+  filter: brightness(0) invert(1);
+}
+
+/* About Javafish section */
+.about-javafish {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 4rem 0;
+}
+
+.about-javafish .container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.javafish-logo {
+  text-align: center;
+}
+
+.javafish-logo img {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.javafish-content p {
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* References section */
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial {
+  background-color: var(--light-color);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.quote {
+  font-size: 4rem;
+  color: var(--accent-color);
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  opacity: 0.2;
+  font-family: Georgia, serif;
+}
+
+.testimonial p {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+}
+
+.author {
+  border-top: 1px solid var(--gray-medium);
+  padding-top: 1rem;
+}
+
+.author h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.2rem;
+}
+
+.author p {
+  margin-bottom: 0.2rem;
+  font-size: 0.9rem;
+  color: var(--gray-dark);
+}
+
+/* Technologies section */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.tech-item {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.tech-item:hover {
+  transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark-color);
+  color: white;
+  padding: 3rem 0;
+  font-size: 0.9rem;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-content p {
+  margin-bottom: 1rem;
+  color: var(--gray-medium);
+}
+
+/* Contact page styles */
+.hero-contact {
+  background-image: linear-gradient(
+      rgba(10, 77, 104, 0.8),
+      rgba(10, 77, 104, 0.8)
+    ),
+    url("images/contact-hero.jpg");
+  height: 40vh;
+}
+
+.contact-info {
+  padding: 4rem 0;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3rem;
+  background-color: var(--light-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.contact-logo {
+  margin-bottom: 2rem;
+  width: 180px;
+}
+
+.contact-details h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-details h2:after {
+  margin: 0.5rem auto;
+}
+
+.contact-details p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.address {
+  color: var(--gray-dark);
+}
+
+.email a {
+  color: var(--secondary-color);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.email a:hover {
+  color: var(--accent-color);
+}
+
+.phone {
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.social-links {
+  margin-top: 2rem;
+}
+
+.linkedin-link {
+  display: inline-flex;
+  align-items: center;
+  background-color: #0077b5;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.linkedin-link i {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.linkedin-link:hover {
+  background-color: #005e93;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Contact methods section */
+.contact-methods {
+  padding: 4rem 0;
+  background-color: var(--gray-light);
+}
+
+.methods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.method-item {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.method-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.method-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.method-item h3 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.method-item p {
+  margin-bottom: 0.8rem;
+  color: var(--text-color);
+}
+
+.method-highlight {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.method-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--secondary-color);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.method-link:hover {
+  color: var(--accent-color);
+}
+
+/* Map section */
+.map-section {
+  padding: 4rem 0;
+}
+
+.map-container {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+/* About Us page styles */
+.hero-about {
+  background-image: linear-gradient(
+      rgba(10, 77, 104, 0.8),
+      rgba(10, 77, 104, 0.8)
+    ),
+    url("images/water-background.jpg");
+  height: 50vh;
+}
+
+.about-company {
+  padding: 4rem 0;
+}
+
+.about-intro {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.about-logo {
+  flex: 0 0 30%;
+  text-align: center;
+}
+
+.about-logo img {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.about-description {
+  flex: 0 0 70%;
+  padding-left: 2rem;
+}
+
+.about-description h2 {
+  text-align: left;
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+}
+
+.about-description h2:after {
+  margin-left: 0;
+}
+
+.about-details {
+  margin-top: 2rem;
+}
+
+.about-quote {
+  border-left: 4px solid var(--accent-color);
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+  color: var(--gray-dark);
+}
+
+.tech-list {
+  list-style: none;
+  margin-left: 1.5rem;
+}
+
+.tech-list li {
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+/* Yachting section */
+.yachting-section {
+  margin: 4rem 0;
+}
+
+.yachting-banner {
+  background-image: linear-gradient(
+      rgba(10, 77, 104, 0.7),
+      rgba(10, 77, 104, 0.7)
+    ),
+    url("images/water-background.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 3rem 0;
+  margin-bottom: 3rem;
+}
+
+.yachting-banner h2 {
+  color: white;
+  font-style: italic;
+}
+
+.sailing-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sailing-content h3 {
+  margin-bottom: 1.5rem;
+}
+
+.sailing-image {
+  margin: 2rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.sailing-quote {
+  font-style: italic;
+  color: var(--gray-dark);
+  max-width: 600px;
+  margin: 2rem auto;
+  padding-left: 1.5rem;
+  border-left: 4px solid var(--accent-color);
+  text-align: left;
+}
+
+.sailing-quote cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* Team section */
+.team-section {
+  padding: 4rem 0;
+  background-color: var(--light-color);
+}
+
+.team-member {
+  display: flex;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.member-image {
+  flex: 0 0 40%;
+  padding-right: 2rem;
+}
+
+.member-image img {
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.member-info {
+  flex: 0 0 60%;
+}
+
+.member-info h3 {
+  margin-bottom: 0.5rem;
+}
+
+.member-title {
+  color: var(--secondary-color);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.member-bio {
+  line-height: 1.8;
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .development-outsourcing .container,
+  .about-javafish .container {
+    grid-template-columns: 1fr;
+  }
+
+  .section-image {
+    margin-bottom: 2rem;
+  }
+
+  .javafish-logo {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .logo {
+    margin-bottom: 1rem;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav li {
+    margin: 0 0.75rem;
+  }
+
+  .hero {
+    height: auto;
+    padding: 4rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .case-grid,
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 95%;
+    padding: 1.5rem 0;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Media queries for contact page */
+@media (max-width: 992px) {
+  .methods-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .method-item {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-logo {
+    width: 150px;
+  }
+
+  .contact-details h2 {
+    font-size: 1.8rem;
+  }
+
+  .contact-details p {
+    font-size: 1rem;
+  }
+
+  .linkedin-link {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .methods-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Media queries for About Us page */
+@media (max-width: 992px) {
+  .about-intro {
+    flex-direction: column;
+  }
+
+  .about-logo {
+    margin-bottom: 2rem;
+  }
+
+  .about-description {
+    padding-left: 0;
+  }
+
+  .about-description h2 {
+    text-align: center;
+  }
+
+  .about-description h2:after {
+    margin: 0.5rem auto 0;
+  }
+
+  .team-member {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .member-image {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-about {
+    height: auto;
+    padding: 4rem 1rem;
+  }
+}
+
+/* Terms and Conditions page styles */
+.hero-terms {
+  background-image: linear-gradient(
+      rgba(10, 77, 104, 0.8),
+      rgba(10, 77, 104, 0.8)
+    ),
+    url("images/water-background.jpg");
+  height: 40vh;
+}
+
+.terms-section {
+  padding: 4rem 0;
+}
+
+.terms-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.terms-list {
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.terms-list li {
+  margin-bottom: 1.5rem;
+}
+
+.terms-content h2 {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+}
+
+.terms-content p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.terms-content a {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+.terms-content a:hover {
+  color: var(--accent-color);
+}
+
+/* Footer links */
+.footer-links {
+  margin: 1rem 0;
+}
+
+.footer-links a {
+  color: var(--gray-medium);
+  text-decoration: underline;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .terms-content {
+    padding: 0 1rem;
+  }
+
+  .terms-list {
+    margin-left: 1rem;
+  }
+}
