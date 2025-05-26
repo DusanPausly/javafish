@@ -1,7 +1,7 @@
 /* Base styles and reset */
 :root {
-  --primary-color: #0a4d68;
-  --secondary-color: #088395;
+  --primary-color: #015388;
+  --secondary-color: #27589d;
   --accent-color: #05bfdb;
   --light-color: #f8f9fa;
   --dark-color: #212529;
@@ -77,7 +77,7 @@ h2:after {
   width: 60px;
   height: 3px;
   background-color: var(--accent-color);
-  margin: 0.5rem auto 0;
+  margin: 0.5rem auto;
 }
 
 h3 {
@@ -90,8 +90,8 @@ p {
 
 /* Header styles */
 header {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: white;
+  color: var(--primary-color);
 }
 
 .header-container {
@@ -102,7 +102,7 @@ header {
 }
 
 .logo img {
-  height: 40px;
+  height: 100px;
 }
 
 nav ul {
@@ -115,7 +115,7 @@ nav li {
 }
 
 nav a {
-  color: white;
+  color: var(--primary-color);
   font-weight: 500;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
@@ -139,11 +139,7 @@ nav a.active:after {
 }
 
 .hero {
-  background-image: linear-gradient(
-      rgba(10, 77, 104, 0.8),
-      rgba(10, 77, 104, 0.8)
-    ),
-    url("images/wave.jpg");
+  background-image: url("images/bg.jpg");
   background-size: cover;
   background-position: center;
   height: 60vh;
@@ -220,6 +216,10 @@ nav a.active:after {
   align-items: center;
   justify-content: center;
   background-color: var(--primary-color);
+  background-image: url("images/logo2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   border-radius: 50%;
   padding: 1rem;
 }
@@ -275,12 +275,11 @@ nav a.active:after {
 }
 
 .quote {
-  font-size: 4rem;
+  font-size: 5rem;
+  line-height: 0;
   color: var(--accent-color);
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  opacity: 0.2;
+  position: relative;
+  opacity: 0.5;
   font-family: Georgia, serif;
 }
 
@@ -307,19 +306,19 @@ nav a.active:after {
 }
 
 /* Technologies section */
-.tech-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+.technologies {
+  display: flex;
   gap: 2rem;
   justify-items: center;
 }
 
 .tech-item {
-  width: 70px;
-  height: 70px;
+  width: 600px;
+  height: 380px;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   transition: var(--transition);
 }
 
@@ -331,7 +330,6 @@ nav a.active:after {
 footer {
   background-color: var(--dark-color);
   color: white;
-  padding: 3rem 0;
   font-size: 0.9rem;
 }
 
@@ -346,18 +344,9 @@ footer {
   color: var(--gray-medium);
 }
 
-/* Contact page styles */
-.hero-contact {
-  background-image: linear-gradient(
-      rgba(10, 77, 104, 0.8),
-      rgba(10, 77, 104, 0.8)
-    ),
-    url("images/contact-hero.jpg");
-  height: 40vh;
-}
-
 .contact-info {
   padding: 4rem 0;
+  background-color: var(--gray-light);
 }
 
 .contact-card {
@@ -510,16 +499,6 @@ footer {
   box-shadow: var(--shadow);
 }
 
-/* About Us page styles */
-.hero-about {
-  background-image: linear-gradient(
-      rgba(10, 77, 104, 0.8),
-      rgba(10, 77, 104, 0.8)
-    ),
-    url("images/water-background.jpg");
-  height: 50vh;
-}
-
 .about-company {
   padding: 4rem 0;
 }
@@ -583,17 +562,15 @@ footer {
 }
 
 .yachting-banner {
-  background-image: linear-gradient(
-      rgba(10, 77, 104, 0.7),
-      rgba(10, 77, 104, 0.7)
-    ),
-    url("images/water-background.jpg");
+  background-color: var(--primary-color);
   background-size: cover;
   background-position: center;
   color: white;
   text-align: center;
   padding: 3rem 0;
   margin-bottom: 3rem;
+  margin-left: 24px;
+  margin-right: 24px;
 }
 
 .yachting-banner h2 {
@@ -634,45 +611,72 @@ footer {
   font-weight: 500;
 }
 
-/* Team section */
+/* Team section styling */
 .team-section {
   padding: 4rem 0;
-  background-color: var(--light-color);
 }
 
 .team-member {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  max-width: 900px;
-  margin: 0 auto;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .member-image {
-  flex: 0 0 40%;
-  padding-right: 2rem;
+  margin-bottom: 1.5rem;
+  max-width: 350px;
+  overflow: hidden;
 }
 
 .member-image img {
-  border-radius: 8px;
-  box-shadow: var(--shadow);
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.member-image a:hover img {
+  transform: scale(1.03);
 }
 
 .member-info {
-  flex: 0 0 60%;
+  max-width: 600px;
+  text-align: center;
 }
 
 .member-info h3 {
+  color: var(--primary-color);
   margin-bottom: 0.5rem;
 }
 
 .member-title {
   color: var(--secondary-color);
   font-weight: 500;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .member-bio {
   line-height: 1.8;
+}
+
+.member-caption {
+  text-align: center;
+  color: var(--gray-medium);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .team-member {
+    flex-direction: column;
+  }
+
+  .member-image {
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+  }
 }
 
 /* Media Queries */
@@ -707,6 +711,8 @@ footer {
 
   .logo {
     margin-bottom: 1rem;
+    width: 30px;
+    height: auto;
   }
 
   nav ul {
@@ -749,10 +755,6 @@ footer {
 
   h2 {
     font-size: 1.5rem;
-  }
-
-  .tech-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -848,6 +850,7 @@ footer {
 
 .terms-section {
   padding: 4rem 0;
+  text-align: left;
 }
 
 .terms-content {
@@ -907,5 +910,175 @@ footer {
 
   .terms-list {
     margin-left: 1rem;
+  }
+}
+
+.section-intro {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-tile {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.service-tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tile-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+@media (max-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CTA Button Styles */
+.contact-cta {
+  background-color: white;
+  padding: 3rem 0;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.cta-button-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(5, 191, 219, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(1, 83, 136, 0.5);
+}
+
+.cta-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(1, 83, 136, 0.4);
+}
+
+.cta-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease-out;
+  z-index: 1;
+}
+
+.cta-button:hover::after {
+  transform: translateX(0);
+}
+
+@media (max-width: 576px) {
+  .cta-button {
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+  }
+}
+
+/* Tech section styling to match mockup */
+.tech-section {
+  display: flex;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.tech-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--primary-color);
+}
+
+.tech-content {
+  padding-left: 2rem;
+}
+
+.tech-intro {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.tech-list-styled {
+  list-style: none;
+}
+
+.tech-list-styled li {
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.tech-list-styled li::before {
+  content: "-";
+  position: absolute;
+  left: 0;
+}
+
+.tech-name {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .tech-section {
+    flex-direction: column;
+  }
+
+  .tech-content {
+    padding-left: 1.5rem;
   }
 }
