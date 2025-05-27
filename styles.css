@@ -294,6 +294,28 @@ nav a.active::after {
   font-family: Georgia, serif;
 }
 
+/* Add these styles to fix quote overflow on mobile */
+@media (max-width: 768px) {
+  .quote {
+    font-size: 3.5rem;
+    position: static;
+    display: block;
+    height: 20px;
+    margin-bottom: 5px;
+  }
+
+  .testimonial {
+    padding-top: 1.5rem;
+    overflow: hidden;
+  }
+
+  .testimonial p {
+    position: relative;
+    z-index: 1;
+    margin-top: 0.5rem;
+  }
+}
+
 .testimonial p {
   position: relative;
   z-index: 1;
