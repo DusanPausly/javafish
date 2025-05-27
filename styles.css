@@ -103,6 +103,7 @@ header {
 
 .logo img {
   height: 100px;
+  width: auto; /* Ensure width adjusts proportionally */
 }
 
 nav ul {
@@ -112,6 +113,7 @@ nav ul {
 
 nav li {
   margin-left: 1.5rem;
+  align-content: flex-end;
 }
 
 nav a {
@@ -128,14 +130,23 @@ nav a.active {
   color: var(--accent-color);
 }
 
-nav a.active:after {
+nav a::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 0;
   height: 2px;
   background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 50%; /* Half-width underline on hover */
+}
+
+nav a.active::after {
+  width: 100%; /* Full-width underline for active state */
 }
 
 .hero {
@@ -313,13 +324,25 @@ nav a.active:after {
 }
 
 .tech-item {
-  width: 600px;
-  height: 380px;
+  width: 100%; /* Make it responsive */
+  max-width: 600px; /* Maximum width */
+  height: auto; /* Auto height */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   transition: var(--transition);
+}
+
+.tech-item img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .tech-item {
+    max-width: 100%;
+  }
 }
 
 .tech-item:hover {
@@ -711,35 +734,11 @@ footer {
 
   .logo {
     margin-bottom: 1rem;
-    width: 30px;
-    height: auto;
   }
 
-  nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  nav li {
-    margin: 0 0.75rem;
-  }
-
-  .hero {
-    height: auto;
-    padding: 4rem 1rem;
-  }
-
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .case-grid,
-  .testimonials {
-    grid-template-columns: 1fr;
+  .logo img {
+    height: 70px; /* Smaller height on mobile */
+    width: auto;
   }
 }
 
@@ -923,7 +922,16 @@ footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  margin-top: 2rem;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto; /* Center the grid */
+}
+
+.container-services {
+  width: 100%; /* Full width background */
+  background-color: var(--gray-light);
+  padding: 3rem 0;
+  margin: 2rem 0;
 }
 
 .service-tile {
@@ -932,6 +940,10 @@ footer {
   padding: 2rem;
   box-shadow: var(--shadow);
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .service-tile:hover {
@@ -969,6 +981,7 @@ footer {
 .cta-button-container {
   margin-top: 2rem;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .cta-button {
