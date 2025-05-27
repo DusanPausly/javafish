@@ -728,7 +728,7 @@ footer {
 
 @media (max-width: 768px) {
   .header-container {
-    flex-direction: column;
+    /* Remove flex-direction: column */
     padding: 1rem;
   }
 
@@ -1164,4 +1164,124 @@ footer {
 .cookie-btn-all:hover {
   background-color: #f0f0f0;
   color: #000;
+}
+
+/* Mobile and tablet menu styles - CSS only solution */
+.menu-checkbox {
+  display: none; /* Hide the checkbox */
+}
+
+.menu-toggle-label {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.menu-toggle-label span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--primary-color);
+  border-radius: 3px;
+  transition: var(--transition);
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: 99;
+  padding-top: 80px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+/* When checkbox is checked, show the mobile menu */
+#menu-toggle:checked ~ .mobile-nav {
+  transform: translateX(0);
+}
+
+/* Hamburger to X animation */
+#menu-toggle:checked ~ .menu-toggle-label span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+#menu-toggle:checked ~ .menu-toggle-label span:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle:checked ~ .menu-toggle-label span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Additional adjustments for smaller screens */
+@media (max-width: 576px) {
+  .logo img {
+    height: 60px;
+  }
+
+  .menu-toggle-label {
+    width: 25px;
+    height: 18px;
+  }
+
+  /* Fix X alignment on mobile */
+  #menu-toggle:checked ~ .menu-toggle-label span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg); /* Adjusted to meet in the middle */
+  }
+
+  #menu-toggle:checked ~ .menu-toggle-label span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg); /* Adjusted to meet in the middle */
+  }
+}
+
+.mobile-nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.mobile-nav a {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+/* Media query for tablet and mobile navigation */
+@media (max-width: 992px) {
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-toggle-label {
+    display: flex;
+  }
+
+  .mobile-nav {
+    display: block;
+  }
+
+  .logo {
+    margin-bottom: 0;
+  }
+
+  /* Prevent scrolling when menu is open */
+  #menu-toggle:checked ~ body {
+    overflow: hidden;
+  }
 }
