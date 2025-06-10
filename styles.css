@@ -163,7 +163,7 @@ nav a.active::after {
   background-image: url("images/bg.jpg");
   background-size: cover;
   background-position: center;
-  height: 60vh;
+  min-height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -174,6 +174,9 @@ nav a.active::after {
 
 .hero-content {
   max-width: 800px;
+  width: 100%;
+  z-index: 2;
+  position: relative;
 }
 
 .hero h1 {
@@ -238,7 +241,7 @@ nav a.active::after {
   align-items: center;
   justify-content: center;
   background-color: var(--primary-color);
-  background-image: url("images/logo2.png");
+  background-image: url("images/logo_white.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -749,8 +752,15 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .section-image {
-    margin-bottom: 2rem;
+  /* Change order on mobile: text first, then image */
+  .development-outsourcing .section-content {
+    order: 1;
+  }
+
+  .development-outsourcing .section-image {
+    order: 2;
+    margin-top: 2rem;
+    margin-bottom: 0;
   }
 
   .javafish-logo {
@@ -771,6 +781,23 @@ footer {
     height: 70px; /* Smaller height on mobile */
     width: auto;
   }
+
+  /* Better mobile spacing for development outsourcing section */
+  .development-outsourcing {
+    padding: 3rem 0;
+  }
+
+  .development-outsourcing .container {
+    padding: 0 1.5rem;
+  }
+
+  .development-outsourcing .section-content {
+    margin-bottom: 2rem;
+  }
+
+  .development-outsourcing .section-image {
+    margin: 0 1rem;
+  }
 }
 
 @media (max-width: 576px) {
@@ -785,6 +812,40 @@ footer {
 
   h2 {
     font-size: 1.5rem;
+  }
+
+  .hero {
+    min-height: 350px;
+    height: max(350px, 45vh);
+    padding: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Enhanced mobile spacing for development outsourcing section */
+  .development-outsourcing {
+    padding: 2.5rem 0;
+  }
+
+  .development-outsourcing .container {
+    padding: 0 1rem;
+  }
+
+  .development-outsourcing .section-content {
+    margin-bottom: 2.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .development-outsourcing .section-image {
+    margin: 0 0.5rem;
   }
 }
 
@@ -862,9 +923,23 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .hero {
+    min-height: 600px;
+    height: max(600px, 50vh);
+    padding: 1.5rem 1rem;
+    margin-top: -100px; /* Adjust for smaller mobile header */
+  }
+
   .hero-about {
-    height: auto;
-    padding: 4rem 1rem;
+    min-height: 400px;
+    height: max(400px, 50vh);
+    padding: 1.5rem 1rem;
+  }
+
+  .hero-companies {
+    min-height: 400px;
+    height: max(400px, 50vh);
+    padding: 1.5rem 1rem;
   }
 }
 
@@ -875,7 +950,8 @@ footer {
       rgba(10, 77, 104, 0.8)
     ),
     url("images/water-background.jpg");
-  height: 40vh;
+  min-height: 350px;
+  height: max(350px, 40vh);
 }
 
 .terms-section {
@@ -1060,10 +1136,113 @@ footer {
   transform: translateX(0);
 }
 
+/* Header CTA Button - smaller variant for navigation */
+.cta-button-header {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(5, 191, 219, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button-header:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(1, 83, 136, 0.4);
+}
+
+.cta-button-header:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(1, 83, 136, 0.3);
+}
+
+.cta-button-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease-out;
+  z-index: 1;
+}
+
+.cta-button-header:hover::after {
+  transform: translateX(0);
+}
+
+/* Hero CTA Button - larger, more prominent variant */
+.cta-button-hero {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(5, 191, 219, 0.5);
+  position: relative;
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.cta-button-hero:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(1, 83, 136, 0.6);
+}
+
+.cta-button-hero:active {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(1, 83, 136, 0.5);
+}
+
+.cta-button-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease-out;
+  z-index: 1;
+}
+
+.cta-button-hero:hover::after {
+  transform: translateX(0);
+}
+
 @media (max-width: 576px) {
   .cta-button {
     padding: 0.8rem 1.8rem;
     font-size: 1rem;
+  }
+
+  .cta-button-header {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.8rem;
+  }
+
+  .cta-button-hero {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -1450,5 +1629,81 @@ html:has([data-scroll-trigger]) {
     html:has(:hover:active) .logo img {
       height: 50px;
     }
+  }
+}
+
+/* Extended Footer Styles */
+.footer-extended {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  color: var(--gray-light);
+}
+
+.footer-contact,
+.footer-nav {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 1.5rem;
+}
+
+.footer-contact h3,
+.footer-nav h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footer-contact p {
+  margin-bottom: 0.5rem;
+  color: var(--gray-medium);
+}
+
+.footer-contact a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-nav li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-nav a {
+  color: var(--gray-medium);
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  color: var(--primary-color);
+}
+
+.footer-divider {
+  border: 0;
+  height: 1px;
+  background-color: var(--gray-medium);
+  opacity: 0.3;
+  margin: 0 0 2rem 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-extended {
+    flex-direction: column;
+  }
+
+  .footer-contact,
+  .footer-nav {
+    width: 100%;
+    text-align: center;
   }
 }
